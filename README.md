@@ -1,5 +1,5 @@
 # List-It
-List It is an android app in kotlin which the user can use to note the things they want to remember to do.
+List It is an android app in Kotlin, which helps the user to note the things they want to remember to do.
 
 ![main_page](https://user-images.githubusercontent.com/48640844/103457572-7f9ca380-4d26-11eb-8a84-99e1365aa4aa.png)
 
