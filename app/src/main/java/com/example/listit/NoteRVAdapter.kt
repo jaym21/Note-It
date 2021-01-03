@@ -11,7 +11,7 @@ import javax.xml.transform.ErrorListener
 
 class NoteRVAdapter(private val context: Context, private val listener: INoteRVAdapter): RecyclerView.Adapter<NoteRVAdapter.NoteViewHolder>() {
 
-    val allNotes = ArrayList<Note>()
+    private val allNotes = ArrayList<Note>()
 
     inner class NoteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val textView: TextView = itemView.findViewById(R.id.text)
