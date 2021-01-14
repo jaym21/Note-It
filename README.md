@@ -11,4 +11,29 @@ This app is made to understand the implementation of Android Architecture Compon
 
 ![Android Architecture Components](https://user-images.githubusercontent.com/48640844/103457142-875a4900-4d22-11eb-8a79-f9b328f806ee.png)
 
+# Dependencies
+implementation "androidx.appcompat:appcompat:1.2.0"\
+implementation "androidx.activity:activity-ktx:1.1.0"\
+implementation 'com.android.support:design:28.0.0'
 
+## Room Components
+implementation "androidx.room:room-ktx:2.2.6"\
+kapt "androidx.room:room-compiler:2.2.6"\
+androidTestImplementation "androidx.room:room-testing:2.2.6"
+
+## Lifecycle Components
+implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"\
+implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"\
+implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0"
+
+## UI
+implementation "androidx.constraintlayout:constraintlayout:2.0.4"\
+implementation "com.google.android.material:material:1.2.1"
+
+## Testing
+testImplementation "junit:junit:4.13.1"\
+androidTestImplementation "androidx.arch.core:core-testing:2.1.0"\
+androidTestImplementation ("androidx.test.espresso:espresso-core:3.1.0", {\
+    exclude group: 'com.android.support', module: 'support-annotations'\
+})\
+androidTestImplementation "androidx.test.ext:junit:1.1.2"
