@@ -1,4 +1,4 @@
-package com.example.listit
+package com.example.listit.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import javax.xml.transform.ErrorListener
+import com.example.listit.R
+import com.example.listit.data.Note
+
 
 class NoteRVAdapter(private val context: Context, private val listener: INoteRVAdapter): RecyclerView.Adapter<NoteRVAdapter.NoteViewHolder>() {
 
@@ -40,7 +42,7 @@ class NoteRVAdapter(private val context: Context, private val listener: INoteRVA
     fun updateList(newList: List<Note>) {
         //first clearing the older list of notes
         allNotes.clear()
-        //adding the newList in which new note the changes are present
+        //adding the newList in which the changes are present that are made to the note list(i.e deleted notes or added new ones)
         allNotes.addAll(newList)
 
         //updating the recyclerview with changes

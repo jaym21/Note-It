@@ -1,7 +1,8 @@
-package com.example.listit
+package com.example.listit.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.listit.data.Note
 
 //making DAO(Data Access Object) to access the data in entity(table) and perform queries or operation on database
 @Dao

@@ -1,12 +1,13 @@
-package com.example.listit
+package com.example.listit.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.listit.data.Note
 
 // Annotates class to be a Room Database with a table (entity) of the Note class
-@Database(entities = arrayOf(Note::class), version = 1, exportSchema = false)
+@Database(entities = [Note::class], version = 1, exportSchema = false)
 abstract class NoteDatabase: RoomDatabase() {
 
     //getting NoteDAO through this function

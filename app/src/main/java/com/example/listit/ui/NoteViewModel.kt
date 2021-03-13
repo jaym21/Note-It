@@ -1,9 +1,12 @@
-package com.example.listit
+package com.example.listit.ui
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.listit.data.Note
+import com.example.listit.data.NoteRepository
+import com.example.listit.database.NoteDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -16,7 +19,6 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
     //getting notes which is LiveData
     val allNotes: LiveData<List<Note>>
-
     private val repository: NoteRepository
 
     //to get allnotes from database through dao we need to create a instance of database
@@ -27,12 +29,12 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
         allNotes = repository.allNotes
     }
 
-    //calling insert function in repository, as it is a suspend fun in repository so we need to call it through viewModelScope which makes a background thread or coroutine
+    //calling insert function in repository, as it is a suspend fun, so we need to call it through viewModelScope which makes a background thread or coroutine
     fun insertNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(note)
     }
 
-    //calling delete function in repository, as it is a suspend fun in repository so we need to call it through viewModelScope which makes a background thread or coroutine
+    //calling delete function in repository, as it is a suspend fun, so we need to call it through viewModelScope which makes a background thread or coroutine
     fun deleteNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(note)
     }

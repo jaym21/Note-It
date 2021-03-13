@@ -1,4 +1,4 @@
-package com.example.listit
+package com.example.listit.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

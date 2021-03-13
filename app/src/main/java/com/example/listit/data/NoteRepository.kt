@@ -1,11 +1,12 @@
-package com.example.listit
+package com.example.listit.data
 
 import androidx.lifecycle.LiveData
+import com.example.listit.database.NoteDAO
 
 //Repository is basically a simple class which is layer used to provide a cleaner API to viewmodel or UI to communicate with
 // Declares the DAO as a private property in the constructor. Pass in the DAO
 // instead of the whole database, because you only need access to the DAO
-class NoteRepository(private val noteDAO: NoteDAO) {
+class  NoteRepository(private val noteDAO: NoteDAO) {
 
     // Room executes all queries on a separate thread.
     // Observed LiveData will notify the observer when the data has changed.
