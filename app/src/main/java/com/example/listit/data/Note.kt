@@ -8,7 +8,14 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "notes_table")
 
 //defining the schema of the table text as string
-class Note(@ColumnInfo(name = "text")val text: String) {
+class Note(
+    @ColumnInfo(name = "noteTitle")
+    val title: String,
+
+    @ColumnInfo(name = "noteDes")
+    val des: String
+    ) {
+
     //making an id for each text autoGenerate will automatically generate id for each text we don't need to pass
     @PrimaryKey(autoGenerate = true) var id = 0
 }

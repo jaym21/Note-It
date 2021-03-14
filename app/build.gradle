@@ -41,11 +41,8 @@ android {
 
 dependencies {
     implementation "androidx.appcompat:appcompat:1.2.0"
-    implementation "androidx.activity:activity-ktx:1.1 .0"
+    implementation "androidx.activity:activity-ktx:1.2.1"
     implementation 'com.android.support:design:28.0.0'
-
-    // Dependencies for working with Architecture components
-    // You'll probably have to update the version numbers in build.gradle (Project)
 
     // Room components
     implementation "androidx.room:room-ktx:2.2.6"

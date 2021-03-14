@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 // - We can put an observer on the data (instead of polling for changes) and only update the the UI when the data actually changes.
 // - Repository is completely separated from the UI through the ViewModel.
 
-//android viewmodel takes an parameter application which passed through constructor
+//android viewModel takes an parameter application which passed through constructor
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
     //getting notes which is LiveData
