@@ -50,9 +50,6 @@ class NoteRVAdapter(private val context: Context, private val listener: INoteRVA
         val currentNote = allNotes[position]
         holder.noteTitle.text = currentNote.title
         holder.noteDes.text = currentNote.des
-//        val num = (0..10).random()
-        val color = Color.argb(Random.nextInt(256), Random.nextInt(256), Random.nextInt(256), Random.nextInt(256))
-        holder.noteCard.setCardBackgroundColor(color)
     }
 
     //this function is to update the recycler by diffUtil(only changing the changes made observed through viewModel, and not the whole list again)

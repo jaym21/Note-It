@@ -15,13 +15,13 @@ class OpenNote : AppCompatActivity() {
         binding = ActivityOpenNoteBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        //back button funtionality
+        //back button functionality
         binding?.ivBackButton?.setOnClickListener {
             finish()
         }
 
         binding?.ivEditButton?.setOnClickListener {
-            
+
         }
 
         val selectedNote: Note = intent.getSerializableExtra("SelectedNote") as Note

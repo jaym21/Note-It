@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter {
         })
     }
 
+
     override fun onDeleteClicked(note: Note) {
         //whenever delete on a note is clicked we call the delete fun in viewModel
         viewModel.deleteNote(note)
