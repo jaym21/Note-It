@@ -16,6 +16,9 @@ interface NoteDAO {
     @Delete
     suspend fun delete(note: Note)
 
+    @Update
+    suspend fun update(note: Note)
+
     @Query("Select * from notes_table order by id ASC") //getting all notes by order of their id
     fun getAllNotes(): LiveData<List<Note>> //LiveData is used to observe the changes made to data
 }

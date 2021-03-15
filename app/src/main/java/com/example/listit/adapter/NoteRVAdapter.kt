@@ -30,9 +30,14 @@ class NoteRVAdapter(private val context: Context, private val listener: INoteRVA
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val viewHolder = NoteViewHolder(LayoutInflater.from(context).inflate(R.layout.item_note, parent, false))
+        //implementing delete button click
         viewHolder.deleteButton.setOnClickListener {
             //gets the position of the item clicked
-            listener.onItemClicked(allNotes[viewHolder.adapterPosition])
+            listener.onDeleteClicked(allNotes[viewHolder.adapterPosition])
+        }
+        //implementing note card click
+        viewHolder.noteCard.setOnClickListener {
+            listener.onCardClicked(allNotes[viewHolder.adapterPosition])
         }
         return viewHolder
     }
@@ -64,5 +69,6 @@ class NoteRVAdapter(private val context: Context, private val listener: INoteRVA
 
     //handling clicks
     interface INoteRVAdapter {
-        fun onItemClicked(note: Note)
+        fun onDeleteClicked(note: Note)
+        fun onCardClicked(note: Note)
     }

@@ -47,9 +47,17 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter {
         })
     }
 
-    override fun onItemClicked(note: Note) {
-        //whenever a note is clicked we call the delete fun in viewModel
+    override fun onDeleteClicked(note: Note) {
+        //whenever delete on a note is clicked we call the delete fun in viewModel
         viewModel.deleteNote(note)
+
+    }
+
+    override fun onCardClicked(note: Note) {
+        //whenever a card of note is clicked we navigate to openNote activity passing the note
+        val openNoteIntent = Intent(this, OpenNote::class.java)
+        openNoteIntent.putExtra("SelectedNote", note)
+        startActivity(openNoteIntent)
     }
 
     fun openAddNote(view: View) {
