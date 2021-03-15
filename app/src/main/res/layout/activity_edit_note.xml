@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.AddNote"
+    tools:context=".ui.EditNote"
     android:orientation="vertical"
     android:padding="30dp"
     android:gravity="center">
@@ -30,7 +30,7 @@
                 style="@style/InputStyle">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etEditNoteTitle"
+                    android:id="@+id/etNoteTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
@@ -48,7 +48,7 @@
                 android:layout_marginBottom="50dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etEditNoteDes"
+                    android:id="@+id/etNoteDes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Note Description"
@@ -57,10 +57,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnAdd"
+                android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add"
+                android:text="Save"
                 android:fontFamily="@font/montserrat_bold"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
