@@ -30,10 +30,9 @@
                 style="@style/InputStyle">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etEditNoteTitle"
+                    android:id="@+id/etNoteTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:hint="Note Title"
                     android:fontFamily="@font/montserrat_medium"/>
 
@@ -48,7 +47,7 @@
                 android:layout_marginBottom="50dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etEditNoteDes"
+                    android:id="@+id/etNoteDes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Note Description"

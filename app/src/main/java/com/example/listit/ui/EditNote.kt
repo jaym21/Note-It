@@ -1,5 +1,6 @@
 package com.example.listit.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -14,6 +15,7 @@ class EditNote : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityEditNoteBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
         val selectedNote: Note = intent.getSerializableExtra("EditSelectedNote") as Note
@@ -22,17 +24,22 @@ class EditNote : AppCompatActivity() {
 
 
         binding?.apply {
-            etNoteTitle.setText(selectedNote.title ?: "")
-            etNoteDes.setText(selectedNote.des ?: "")
+            etEditNoteTitle.setText(selectedNote.title ?: "")
+            etEditNoteDes.setText(selectedNote.des ?: "")
         }
 
 
         binding?.apply {
             btnSave.setOnClickListener {
-                viewModel.updateNote(Note(etNoteTitle.text.toString().takeIf { it.isNotBlank() }!!,
-                    etNoteDes.text.toString().takeIf { it.isNotBlank() }!!
-                ))
+                val editedNote = Note(
+                    etEditNoteTitle.text.toString(),
+                    etEditNoteDes.text.toString()
+                )
+                viewModel.updateNote(editedNote)
                 Toast.makeText(this@EditNote, "Updated the note", Toast.LENGTH_SHORT).show()
+
+                val mainIntent = Intent(this@EditNote, MainActivity::class.java)
+                startActivity(mainIntent)
             }
         }
     }

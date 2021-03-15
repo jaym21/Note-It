@@ -13,10 +13,11 @@ import java.io.Serializable
 data class Note(
 
     @ColumnInfo(name = "noteTitle")
-    val title: String,
+    val title: String?,
 
     @ColumnInfo(name = "noteDes")
-    val des: String
+    val des: String?
+
     ): Serializable {
 
     //making an id for each text autoGenerate will automatically generate id for each text we don't need to pass
