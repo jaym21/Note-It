@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.OpenNote"
+    android:id="@+id/llBg"
     android:orientation="vertical"
     android:padding="30dp">
 

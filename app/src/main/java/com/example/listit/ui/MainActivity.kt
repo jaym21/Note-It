@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter {
             adapter.updateList(it)
         }
         })
+
     }
 
 

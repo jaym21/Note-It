@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#27AE60</color>
-    <color name="colorPrimaryDark">#196F3D</color>
+    <color name="colorPrimary">#272626</color>
+    <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#E4D1B3</color>
+    <color name="white">#FFFF</color>
 
-    <color name="red">#FF4646</color>
-    <color name="blue">#2196f3</color>
-    <color name="purple">#9c27b0</color>
-    <color name="pink">#e91e63</color>
-    <color name="green">#00C980</color>
-    <color name="yellow">#FFC114</color>
-    <color name="orange">#ff5722</color>
+    <color name="red">#E57373</color>
+    <color name="blue">#64B5F6</color>
+    <color name="indigo">#5C6BC0</color>
+    <color name="purple">#BA68C8</color>
+    <color name="pink">#F06292</color>
+    <color name="green">#81C784</color>
+    <color name="yellow">#FFF176</color>
+    <color name="orange">#FFB74D</color>
+    <color name="brown">#A1887F</color>
+    <color name="teal">#26A69A</color>
 
     <integer-array name="cardColors">
         <item>@color/blue</item>
-        <item>@color/purple</item>
         <item>@color/green</item>
-        <item>@color/orange</item>
-        <item>@color/red</item>
         <item>@color/yellow</item>
+        <item>@color/red</item>
+        <item>@color/purple</item>
+        <item>@color/orange</item>
         <item>@color/pink</item>
+        <item>@color/teal</item>
+        <item>@color/indigo</item>
+        <item>@color/brown</item>
     </integer-array>
 </resources>

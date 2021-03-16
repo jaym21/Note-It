@@ -4,12 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProvider
-import com.example.listit.R
 import com.example.listit.data.Note
 import com.example.listit.databinding.ActivityAddNoteBinding
-import com.example.listit.utils.RandomColor
 
 class AddNote : AppCompatActivity() {
 
@@ -25,7 +22,7 @@ class AddNote : AppCompatActivity() {
 
         binding?.btnAdd?.setOnClickListener {
             if (binding?.etNoteTitle?.text.toString().isNotEmpty() && binding?.etNoteDes?.text.toString().isNotEmpty()) {
-                addNote(binding?.etNoteTitle?.text.toString(), binding?.etNoteDes?.text.toString())
+                addNote(binding?.etNoteTitle?.text.toString(), binding?.etNoteDes?.text.toString(), null)
                 val mainIntent = Intent(this, MainActivity::class.java)
                 startActivity(mainIntent)
             }else {
@@ -35,9 +32,9 @@ class AddNote : AppCompatActivity() {
         }
     }
 
-    private fun addNote (title: String, des: String) {
+    private fun addNote (title: String, des: String, color: Int?) {
         //adding the note by calling insertNote fun in viewModel
-        viewModel.insertNote(Note(title, des))
+        viewModel.insertNote(Note(title, des, color))
     }
 
     override fun onDestroy() {

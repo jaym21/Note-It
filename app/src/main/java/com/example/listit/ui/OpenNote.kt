@@ -19,7 +19,7 @@ class OpenNote : AppCompatActivity() {
 
         selectedNote = intent.getSerializableExtra("SelectedNote") as Note
 
-
+        binding?.llBg?.setBackgroundColor(selectedNote!!.color!!)
         binding?.tvTitleOpen?.text = selectedNote?.title
         binding?.tvDesOpen?.text = selectedNote?.des
 

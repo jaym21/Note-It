@@ -16,7 +16,10 @@ data class Note(
     val title: String?,
 
     @ColumnInfo(name = "noteDes")
-    val des: String?
+    val des: String?,
+
+    @ColumnInfo(name = "noteColor")
+    var color: Int?
 
     ): Serializable {
 
