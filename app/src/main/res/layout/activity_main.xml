@@ -10,15 +10,16 @@
         android:id="@+id/tvMyNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="My Notes"
+        android:text="Notes"
         android:textSize="25sp"
+        android:textColor="@color/colorPrimary"
         android:fontFamily="@font/montserrat_bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
-        android:paddingBottom="20dp"/>
+        android:paddingBottom="10dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -28,7 +29,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_note"
-        />
+        android:layoutAnimation="@anim/recyclerview_animation"/>
 
   <com.google.android.material.floatingactionbutton.FloatingActionButton
       android:id="@+id/fabAddNote"
@@ -38,8 +39,17 @@
       app:layout_constraintRight_toRightOf="parent"
       android:layout_margin="15dp"
       android:src="@drawable/ic_add"
-      android:backgroundTint="#27AE60"
-      app:tint="#FFFFFF"
-      android:onClick="openAddNote"/>
+      android:backgroundTint="@color/colorPrimary"
+      app:tint="#FFFFFF"/>
+
+    <View
+        android:id="@+id/circleAnim"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:visibility="invisible"
+        android:background="@drawable/fab_anim_shape"
+        app:layout_constraintLeft_toLeftOf="@id/fabAddNote"
+        app:layout_constraintRight_toRightOf="@id/fabAddNote"
+        app:layout_constraintBottom_toBottomOf="@id/fabAddNote"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
