@@ -26,40 +26,24 @@
                     android:orientation="vertical"
                     android:padding="8dp">
 
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/tvNoteTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            tools:text="Homework"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            android:fontFamily="@font/montserrat_bold"/>
 
-                                <TextView
-                                    android:id="@+id/tvNoteTitle"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="3"
-                                    tools:text="Homework"
-                                    android:textColor="@color/white"
-                                    android:textSize="22sp"
-                                    android:fontFamily="@font/montserrat_bold"/>
-
-                                <ImageView
-                                    android:id="@+id/btnDelete"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_weight="0.3"
-                                    android:src="@drawable/ic_delete"
-                                    android:layout_gravity="center"/>
-
-                        </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tvNoteDes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:text="Math Science, English, Geometry"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:layout_marginTop="10dp"/>
+                        <TextView
+                            android:id="@+id/tvNoteDes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="Math Science, English, Geometry"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:layout_marginTop="10dp"/>
 
                 </LinearLayout>
 
