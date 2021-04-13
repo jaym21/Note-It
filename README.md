@@ -1,4 +1,4 @@
-# List-It
+# Note It
 Note It is an android app in Kotlin, which helps the user to note the things they want to remember to do.
 
 ![main_page](https://user-images.githubusercontent.com/48640844/103473518-7ad7fe00-4dbf-11eb-823e-1af6308e2a13.png)
