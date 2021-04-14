@@ -1,5 +1,8 @@
 # Note It
-Note It is an android app in Kotlin, which helps the user to note the things they want to remember to do.
+- Note It is an android app in Kotlin, which helps the user to note the things they want to remember to do.
+- Notes can be added viewed and updated.
+- Notes can be deleted by swiping them off.
+- It uses Room and coroutines.
 ### Main Page
 ![main_page](https://user-images.githubusercontent.com/48640844/114704283-10cadf80-9d44-11eb-8494-3bde384a8c77.jpg)
 
