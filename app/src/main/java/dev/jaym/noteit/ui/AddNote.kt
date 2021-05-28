@@ -34,7 +34,7 @@ class AddNote : AppCompatActivity() {
 
     private fun addNote (title: String, des: String, color: Int?) {
         //adding the note by calling insertNote fun in viewModel
-        viewModel.insertNote(Note(title, des, color))
+        viewModel.insertNote(Note(0, title, des, color))
     }
 
     override fun onDestroy() {

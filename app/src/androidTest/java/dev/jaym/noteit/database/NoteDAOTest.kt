@@ -1,10 +1,10 @@
+
 package dev.jaym.noteit.database
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.filters.SmallTest
 import dev.jaym.noteit.R
 import dev.jaym.noteit.data.Note
 import dev.jaym.noteit.getOrAwaitValue
@@ -19,7 +19,6 @@ import org.junit.runner.RunWith
 
 @ExperimentalCoroutinesApi
 @RunWith(AndroidJUnit4::class)
-@SmallTest
 class NoteDAOTest {
 
     @get:Rule
@@ -47,10 +46,9 @@ class NoteDAOTest {
         val color = R.color.colorPrimary
         val note = Note("abc", "ABC",  color)
         dao.insert(note)
-        dao.delete(note)
 
         val allNotes = dao.getAllNotes().getOrAwaitValue()
 
-        assertThat(allNotes).doesNotContain(note)
+        assertThat(allNotes).contains(note)
     }
 }

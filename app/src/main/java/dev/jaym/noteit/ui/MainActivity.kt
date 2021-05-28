@@ -10,10 +10,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.*
 import dev.jaym.noteit.adapter.INoteRVAdapter
 import dev.jaym.noteit.adapter.NoteRVAdapter
 import dev.jaym.noteit.data.Note
@@ -26,7 +23,6 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter, androidx.appcompat.wid
 
     private var binding: ActivityMainBinding? = null
     lateinit var viewModel: NoteViewModel
-    lateinit var gridLayoutManager: GridLayoutManager
     lateinit var adapter: NoteRVAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,11 +56,9 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter, androidx.appcompat.wid
             }
         }
 
-        //making gridLayout
-        gridLayoutManager = GridLayoutManager(applicationContext, 2, LinearLayoutManager.VERTICAL, false)
 
         //initializing recyclerView
-        binding?.recyclerView?.layoutManager = gridLayoutManager
+        binding?.recyclerView?.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         //initializing adapter
         adapter = NoteRVAdapter(this, this)

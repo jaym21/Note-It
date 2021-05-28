@@ -9,6 +9,9 @@ import java.io.Serializable
 @Entity(tableName = "notes_table")
 //defining the schema of the table text as string
 data class Note(
+    //making an id for each text autoGenerate will automatically generate id for each text we don't need to pass
+    @PrimaryKey(autoGenerate = true)
+    var id: Int,
 
     @ColumnInfo(name = "noteTitle")
     val title: String?,
@@ -21,9 +24,7 @@ data class Note(
 
     ): Serializable {
 
-    //making an id for each text autoGenerate will automatically generate id for each text we don't need to pass
-    @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
+
 }
 
 

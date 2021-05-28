@@ -8,8 +8,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:maxHeight="200dp"
+            android:layout_height="wrap_content"
             android:id="@+id/cvNote"
             app:cardCornerRadius="16dp"
             app:cardElevation="5dp"

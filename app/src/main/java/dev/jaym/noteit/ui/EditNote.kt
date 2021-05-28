@@ -1,7 +1,9 @@
 package dev.jaym.noteit.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import dev.jaym.noteit.data.Note
 import dev.jaym.noteit.databinding.ActivityEditNoteBinding
@@ -21,25 +23,27 @@ class EditNote : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
 
 
-//        binding?.apply {
-//            etEditNoteTitle.setText(selectedNote.title ?: "")
-//            etEditNoteDes.setText(selectedNote.des ?: "")
-//        }
-//
-//
-//        binding?.apply {
-//            btnSave.setOnClickListener {
-//                val editedNote = Note(
-//                    etEditNoteTitle.text.toString().takeIf { it.isNotBlank() },
-//                    etEditNoteDes.text.toString().takeIf { it.isNotBlank() }
-//                )
-//                viewModel.updateNote(editedNote)
-//                Toast.makeText(this@EditNote, "Updated the note", Toast.LENGTH_SHORT).show()
-//
-//                val mainIntent = Intent(this@EditNote, MainActivity::class.java)
-//                startActivity(mainIntent)
-//            }
-//        }
+        binding?.apply {
+            etEditNoteTitle.setText(selectedNote.title ?: "")
+            etEditNoteDes.setText(selectedNote.des ?: "")
+        }
+
+
+        binding?.apply {
+            btnSave.setOnClickListener {
+                val editedNote = Note(
+                    selectedNote.id,
+                    etEditNoteTitle.text.toString().takeIf { it.isNotBlank() },
+                    etEditNoteDes.text.toString().takeIf { it.isNotBlank() },
+                    selectedNote.color
+                )
+                viewModel.updateNote(editedNote)
+                Toast.makeText(this@EditNote, "Updated the note", Toast.LENGTH_SHORT).show()
+
+                val mainIntent = Intent(this@EditNote, MainActivity::class.java)
+                startActivity(mainIntent)
+            }
+        }
     }
 
     override fun onDestroy() {
