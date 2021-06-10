@@ -22,10 +22,15 @@ class EditNote : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
 
+        //back button functionality
+        binding?.ivBackButton?.setOnClickListener {
+            finish()
+        }
 
         binding?.apply {
             etEditNoteTitle.setText(selectedNote.title ?: "")
             etEditNoteDes.setText(selectedNote.des ?: "")
+            llEditBg.setBackgroundColor(selectedNote.color!!)
         }
 
 

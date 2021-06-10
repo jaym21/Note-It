@@ -1,6 +1,8 @@
 package dev.jaym.noteit.ui
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -153,6 +155,7 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter, androidx.appcompat.wid
         }
         return true
     }
+
 
     //making a fun to search database using query entered and updating the recyclerview with the result
     private fun searchDatabase(searchQuery: String) {

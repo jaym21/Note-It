@@ -20,6 +20,11 @@ class AddNote : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
 
+        //back button functionality
+        binding?.ivBackButton?.setOnClickListener {
+            finish()
+        }
+
         binding?.btnAdd?.setOnClickListener {
             if (binding?.etNoteTitle?.text.toString().isNotEmpty() && binding?.etNoteDes?.text.toString().isNotEmpty()) {
                 addNote(binding?.etNoteTitle?.text.toString(), binding?.etNoteDes?.text.toString(), null)
