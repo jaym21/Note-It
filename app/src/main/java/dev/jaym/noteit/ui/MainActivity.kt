@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter, androidx.appcompat.wid
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        setTheme(R.style.AppTheme)
         setContentView(binding?.root)
 
         //making fab button animation
