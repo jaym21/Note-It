@@ -114,9 +114,27 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter, androidx.appcompat.wid
 
     }
 
+    private fun runRecyclerViewAnimation(recyclerView: RecyclerView) {
+        val context = recyclerView.context
+        val controller = AnimationUtils.loadLayoutAnimation(context, R.anim.recyclerview_animation)
+        recyclerView.layoutAnimation = controller
+        recyclerView.scheduleLayoutAnimation()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        runRecyclerViewAnimation(binding?.recyclerView!!)
+    }
+
     override fun onResume() {
         super.onResume()
         binding?.root?.isVisible = true
+        runRecyclerViewAnimation(binding?.recyclerView!!)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        runRecyclerViewAnimation(binding?.recyclerView!!)
     }
 
 //    override fun onDeleteClicked(note: Note) {
