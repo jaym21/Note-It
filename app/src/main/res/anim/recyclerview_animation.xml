@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--    this file is used to animate the layouts-->
-<gridLayoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:rowDelay="15%"
-    android:columnDelay="15%"
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
     android:animationOrder="normal"
     android:animation="@anim/slide_in"
-    android:direction="top_to_bottom">
+    android:delay="15%">
 
 <!--    it is the delay between two items-->
-</gridLayoutAnimation>
+</layoutAnimation>
