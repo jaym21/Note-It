@@ -43,6 +43,9 @@ class NoteRVAdapter(private val context: Context, private val listener: INoteRVA
         holder.noteTitle.text = currentNote.title
         holder.noteDes.text = currentNote.des
         holder.llNote.setBackgroundColor(currentNote.color!!)
+        holder.noteCard.setOnClickListener {
+            listener.onCardClicked(getItem(position))
+        }
     }
 
 }

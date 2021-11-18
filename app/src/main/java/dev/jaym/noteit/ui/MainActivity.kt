@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.animation.AnimationUtils
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -24,7 +25,6 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setTheme(R.style.AppTheme)
         setContentView(binding?.root)
 
 
@@ -49,10 +49,9 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter {
         //creating a instance or object of viewModel
         viewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
 
-        viewModel.allNotes.observe(this, Observer {list -> list?.let {
-            //checking if the list is null that is no change is observed then this function won't get executed
+        viewModel.allNotes.observe(this, Observer {
+            Log.d("TAGYOYO", "$it")
             noteAdapter.submitList(it)
-        }
         })
     }
 
