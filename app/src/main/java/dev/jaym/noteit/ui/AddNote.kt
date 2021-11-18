@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
+import dev.jaym.noteit.R
 import dev.jaym.noteit.data.Note
 import dev.jaym.noteit.databinding.ActivityAddNoteBinding
 
@@ -27,20 +29,19 @@ class AddNote : AppCompatActivity() {
 
         binding?.btnAdd?.setOnClickListener {
             if (binding?.etNoteTitle?.text.toString().isNotEmpty() && binding?.etNoteDes?.text.toString().isNotEmpty()) {
-                addNote(binding?.etNoteTitle?.text.toString(), binding?.etNoteDes?.text.toString(), null)
+
+                //getting a random color for background
+                val colorsArray = resources.getIntArray(R.array.cardColors)
+                val randomColor =  colorsArray[(0..9).random()]
+                viewModel.insertNote(Note(0, binding?.etNoteTitle?.text.toString(), binding?.etNoteDes?.text.toString(), randomColor))
                 val mainIntent = Intent(this, MainActivity::class.java)
                 startActivity(mainIntent)
             }else {
-                Toast.makeText(this, "Add title and description of the note to be added", Toast.LENGTH_LONG).show()
-
+                Snackbar.make(binding?.root!!, "Add title and description of the note to be added", Snackbar.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun addNote (title: String, des: String, color: Int?) {
-        //adding the note by calling insertNote fun in viewModel
-        viewModel.insertNote(Note(0, title, des, color))
-    }
 
     override fun onDestroy() {
         super.onDestroy()

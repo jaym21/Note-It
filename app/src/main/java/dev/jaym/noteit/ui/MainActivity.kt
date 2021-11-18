@@ -21,7 +21,7 @@ import dev.jaym.noteit.R
 import dev.jaym.noteit.databinding.ActivityMainBinding
 import dev.jaym.noteit.extensions.startAnimation
 
-class MainActivity : AppCompatActivity(), INoteRVAdapter, androidx.appcompat.widget.SearchView.OnQueryTextListener {
+class MainActivity : AppCompatActivity(), INoteRVAdapter {
 
     private var binding: ActivityMainBinding? = null
     lateinit var viewModel: NoteViewModel
@@ -33,31 +33,13 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter, androidx.appcompat.wid
         setTheme(R.style.AppTheme)
         setContentView(binding?.root)
 
-        //making fab button animation
-        val animation  = AnimationUtils.loadAnimation(this, R.anim.fab_explosion_anim).apply {
-            duration = 700
-            interpolator = AccelerateDecelerateInterpolator()
+
+        binding?.fabAddNote?.setOnClickListener {
+            //opening addNote activity on click on fab button
+            val addNoteIntent = Intent(this@MainActivity, AddNote::class.java)
+            startActivity(addNoteIntent)
         }
 
-
-
-        binding?.apply {
-            fabAddNote.setOnClickListener {
-                //first making fab button invisible
-                fabAddNote.isVisible = false
-                //making the circle view of animation visible
-                circleAnim.isVisible = true
-                //starting animation through extension function made
-                circleAnim.startAnimation(animation) {
-                    root.isVisible = false
-                    circleAnim.isVisible = false
-                    fabAddNote.isVisible = true
-                    //opening addNote activity on click on fab button
-                    val addNoteIntent = Intent(this@MainActivity, AddNote::class.java)
-                    startActivity(addNoteIntent)
-                }
-            }
-        }
 
 
         //initializing recyclerView
@@ -137,42 +119,12 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter, androidx.appcompat.wid
         runRecyclerViewAnimation(binding?.recyclerView!!)
     }
 
-//    override fun onDeleteClicked(note: Note) {
-//        //whenever delete on a note is clicked we call the delete fun in viewModel
-//        viewModel.deleteNote(note)
-//
-//    }
 
     override fun onCardClicked(note: Note) {
         //whenever a card of note is clicked we navigate to openNote activity passing the note
         val openNoteIntent = Intent(this, OpenNote::class.java)
         openNoteIntent.putExtra("SelectedNote", note)
         startActivity(openNoteIntent)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-
-        val search = menu?.findItem(R.id.menu_search)
-        val searchView = search?.actionView as androidx.appcompat.widget.SearchView
-        searchView.isSubmitButtonEnabled = true
-        searchView.setOnQueryTextListener(this)
-
-        return true
-    }
-
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        if (query != null) {
-            searchDatabase(query)
-        }
-        return true
-    }
-
-    override fun onQueryTextChange(query: String?): Boolean {
-        if (query != null) {
-            searchDatabase(query)
-        }
-        return true
     }
 
 
