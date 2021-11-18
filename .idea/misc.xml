@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Programming/AndroidAppDevelopment/NoteIt/app/src/main/res/drawable/ic_backbutton.xml" value="0.2630208333333333" />
+        <entry key="..\:/Programming/AndroidAppDevelopment/NoteIt/app/src/main/res/layout/activity_add_note.xml" value="0.246875" />
+        <entry key="..\:/Programming/AndroidAppDevelopment/NoteIt/app/src/main/res/layout/activity_edit_note.xml" value="0.246875" />
         <entry key="..\:/Programming/AndroidAppDevelopment/NoteIt/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Programming/AndroidAppDevelopment/NoteIt/app/src/main/res/layout/activity_open_note.xml" value="0.246875" />
         <entry key="..\:/Programming/AndroidAppDevelopment/NoteIt/app/src/main/res/layout/item_note.xml" value="0.246875" />
         <entry key="..\:/Programming/AndroidAppDevelopment/NoteIt/app/src/main/res/menu/main_menu.xml" value="0.36666666666666664" />
       </map>
