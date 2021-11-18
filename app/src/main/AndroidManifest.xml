@@ -15,7 +15,8 @@
             android:theme="@style/AppThemeNoActionBar"/>
         <activity android:name="dev.jaym.noteit.ui.AddNote"
             android:theme="@style/AppThemeNoActionBar"/>
-        <activity android:name="dev.jaym.noteit.ui.MainActivity">
+        <activity android:name="dev.jaym.noteit.ui.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

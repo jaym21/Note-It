@@ -13,22 +13,13 @@ class  NoteRepository(private val noteDAO: NoteDAO) {
     val allNotes: LiveData<List<Note>> = noteDAO.getAllNotes() //this will get all notes from NoteDAO which will communicate with Database
 
     //to insert a note
-    suspend fun insert(note: Note) {
-        noteDAO.insert(note)
-    }
+    suspend fun insert(note: Note) = noteDAO.insertNote(note)
+
 
     //to delete a note
-    suspend fun delete(note: Note) {
-        noteDAO.delete(note)
-    }
+    suspend fun delete(note: Note) = noteDAO.deleteNote(note)
+
 
     //to update a note
-    suspend fun update(note: Note) {
-        noteDAO.update(note)
-    }
-
-    //to search for a note
-    fun searchNote(searchQuery: String): LiveData<List<Note>>{
-        return noteDAO.getSearchResults(searchQuery)
-    }
+    suspend fun update(note: Note) = noteDAO.updateNote(note)
 }

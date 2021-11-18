@@ -30,22 +30,17 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     //calling insert function in repository, as it is a suspend fun, so we need to call it through viewModelScope which makes a background thread or coroutine
-    fun insertNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
+    fun addNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(note)
     }
 
     //calling delete function in repository, as it is a suspend fun, so we need to call it through viewModelScope which makes a background thread or coroutine
-    fun deleteNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
+    fun removeNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(note)
     }
 
     //calling update function in repository
     fun updateNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.update(note)
-    }
-
-    //calling search function in repository
-    fun searchNote(searchQuery: String):LiveData<List<Note>> {
-        return repository.searchNote(searchQuery)
     }
 }

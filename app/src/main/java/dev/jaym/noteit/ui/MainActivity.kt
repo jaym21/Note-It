@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter {
         //passing adapter to recyclerView
         binding?.recyclerView?.adapter = noteAdapter
 
+        //setting swipe to delete item
         setUpSwipeToDeleteItem()
 
         //creating a instance or object of viewModel
@@ -53,8 +54,6 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter {
             noteAdapter.submitList(it)
         }
         })
-
-
     }
 
     private fun setUpSwipeToDeleteItem() {
@@ -81,7 +80,7 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter {
                 currentList.removeAt(itemPosition)
 
                 //removing from database
-                viewModel.deleteNote(swipedItem)
+                viewModel.removeNote(swipedItem)
 
                 //updating recycler view
                 noteAdapter.submitList(currentList)
@@ -92,7 +91,7 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter {
                     newCurrentList.add(itemPosition, swipedItem)
 
                     //adding item back to database
-                    viewModel.insertNote(swipedItem)
+                    viewModel.addNote(swipedItem)
                     //updating recycler view
                     noteAdapter.submitList(newCurrentList)
                 }
@@ -103,8 +102,6 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter {
         val itemTouchHelper = ItemTouchHelper(swipeToDelete)
         itemTouchHelper.attachToRecyclerView(binding?.recyclerView)
     }
-
-
 
     private fun runRecyclerViewAnimation(recyclerView: RecyclerView) {
         val context = recyclerView.context

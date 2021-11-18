@@ -3,7 +3,6 @@ package dev.jaym.noteit.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import dev.jaym.noteit.R
@@ -33,7 +32,7 @@ class AddNote : AppCompatActivity() {
                 //getting a random color for background
                 val colorsArray = resources.getIntArray(R.array.cardColors)
                 val randomColor =  colorsArray[(0..9).random()]
-                viewModel.insertNote(Note(0, binding?.etNoteTitle?.text.toString(), binding?.etNoteDes?.text.toString(), randomColor))
+                viewModel.addNote(Note(0, binding?.etNoteTitle?.text.toString(), binding?.etNoteDes?.text.toString(), randomColor))
                 val mainIntent = Intent(this, MainActivity::class.java)
                 startActivity(mainIntent)
             }else {
