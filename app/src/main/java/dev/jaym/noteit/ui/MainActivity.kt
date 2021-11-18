@@ -1,12 +1,14 @@
 package dev.jaym.noteit.ui
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.*
+import com.google.android.material.snackbar.Snackbar
 import dev.jaym.noteit.adapter.INoteRVAdapter
 import dev.jaym.noteit.adapter.NoteRVAdapter
 import dev.jaym.noteit.data.Note
@@ -81,11 +83,28 @@ class MainActivity : AppCompatActivity(), INoteRVAdapter {
                 //removing from database
                 viewModel.deleteNote(swipedItem)
 
-                noteAdapter
-            }
+                //updating recycler view
+                noteAdapter.submitList(currentList)
 
+                val snackbar = Snackbar.make(binding?.root!!, "Note removed", Snackbar.LENGTH_LONG)
+                snackbar.setAction("UNDO") {
+                    val newCurrentList  = noteAdapter.currentList.toMutableList()
+                    newCurrentList.add(itemPosition, swipedItem)
+
+                    //adding item back to database
+                    viewModel.insertNote(swipedItem)
+                    //updating recycler view
+                    noteAdapter.submitList(newCurrentList)
+                }
+                snackbar.setActionTextColor(Color.YELLOW)
+                snackbar.show()
+            }
         }
+        val itemTouchHelper = ItemTouchHelper(swipeToDelete)
+        itemTouchHelper.attachToRecyclerView(binding?.recyclerView)
     }
+
+
 
     private fun runRecyclerViewAnimation(recyclerView: RecyclerView) {
         val context = recyclerView.context
